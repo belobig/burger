@@ -1,0 +1,28 @@
+{
+  "name": "burger",
+  "version": "1.0.0",
+  "description": "A devour-that-burger app created using node, express, handlebars, and mysql.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./models/burger.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/belobig/burger.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/belobig/burger/issues"
+  },
+  "homepage": "https://github.com/belobig/burger#readme",
+  "dependencies": {
+    "express-handlebars": "^3.0.0",
+    "express": "^4.16.3",
+    "mysql": "^2.10.2",
+    "body-parser": "^1.14.2"
+  },
+  "devDependencies": {}
+}
