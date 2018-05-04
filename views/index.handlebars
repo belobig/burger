@@ -1,0 +1,29 @@
+<div class="container text-center">
+	<div class="index-image-overlay"></div>
+	<div class="row whiteBG">
+		<img id="deerBurger" src="../public/assets/images/deerBurgerSMsq.jpg" alt="Deer Burger">
+		<h1>Eat Some Burgers!</h1>
+
+		<p>Enter a burger you want to eat, then click submit.</p>
+
+		<form action="">
+			<input id="burgerInput" type="text" name="burgerInput" placeholder="Big Fat n Juicy" maxlength="120">
+			<br>
+			<input class="btn btn-primary" type="submit" value="Submit!">
+		</form>
+		<div class="row">
+			<div class="col-lg-5 colWhite" id="AvailBurgs">
+				<p>Available Burgers</p>
+				{{#each burgers}} {{#unless this.devoured}}
+					<form action="/burgers/{{this.id}}?_method=PUT" method="POST">
+					<button type="submit" class="burgerBtn">{{this.burger_name}}</button>
+					</form>
+				{{/unless}} {{/each}}
+			</div>
+			<div class="col-lg-2"></div>
+			<div class="col-lg-5 colWhite" id="eatenBurgs">
+				<p>Burgers You Ate</p>
+			</div>
+		</div>
+	</div>
+</div>

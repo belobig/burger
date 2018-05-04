@@ -1,0 +1,49 @@
+body {
+	background: black url(../images/deerBurger.jpg) no-repeat fixed center;
+}
+
+.index-image-overlay {
+	background-color: rgba(32,23,19,.7);
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: -1;
+}
+
+.whiteBG {
+	background: rgba(255,255,255, .7);
+	border: 2px solid white;
+	border-radius: 10px;
+	margin: 10px;
+	padding: 20px;
+}
+
+.colWhite {
+	background: rgba(255,255,255, .7);
+	border: 2px solid white;
+	border-radius: 10px;
+}
+
+
+#deerBurger {
+	width: 200px;
+	margin-top: 20px;
+	border-radius: 50%;
+}
+
+#burgerInput {
+	padding: 5px;
+	border-radius: 5px;
+	margin: 5px;
+}
+
+.burgerBtn {
+	padding: 5px;
+	margin: 5px;
+	border-radius: 5px;
+	background: url(../images/deerBurger.jpg) no-repeat fixed center;
+	color: white;
+	text-shadow: 2px 2px 1px #141414;
+}

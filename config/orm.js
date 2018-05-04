@@ -7,28 +7,25 @@ var connection = require("./connection.js");
 // These help avoid SQL injection
 // https://en.wikipedia.org/wiki/SQL_injection
 var orm = {
-	selectAll: function (tableInput) {
+	selectAll: function (tableInput, cb) {
 		var queryString = "SELECT * FROM ??";
 		connection.query(queryString, [tableInput], function (err, result) {
 			if (err) throw err;
-			console.log(result);
-			console.log('---');
+			cb(result);
 		});
 	},
-	insertOne: function (tableInput, colToSearch, valOfCol) {
+	insertOne: function (tableInput, colToSearch, valOfCol, cb) {
 		var queryString = "INSERT INTO ?? (??) VALUES (?)";
-		connection.query(queryString, [tableInput, colToSearch, valOfCol], function(err, result) {
-			if (err)throw err;
-			console.log(result);
-			console.log("---");
+		connection.query(queryString, [tableInput, colToSearch, valOfCol], function (err, result) {
+			if (err) throw err;
+			cb(result);
 		});
 	},
-	updateOne: function (updtValue) {
+	updateOne: function (updtValue, cb) {
 		var queryString = "UPDATE burgers SET devoured = 1 WHERE id = ?";
-		connection.query(queryString, [updtValue], function(err, result) {
+		connection.query(queryString, [updtValue], function (err, result) {
 			if (err) throw err;
-			console.log(result);
-			console.log("---");
+			cb(result);
 		});
 	}
 };
