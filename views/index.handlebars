@@ -6,23 +6,34 @@
 
 		<p>Enter a burger you want to eat, then click submit.</p>
 
-		<form action="">
-			<input id="burgerInput" type="text" name="burgerInput" placeholder="Big Fat n Juicy" maxlength="120">
+		<form action="/burgers" method="POST">
+			<input id="burgerInput" type="text" name="burger_name" placeholder="Big Fat n Juicy" maxlength="120">
 			<br>
 			<input class="btn btn-primary" type="submit" value="Submit!">
 		</form>
 		<div class="row">
 			<div class="col-lg-5 colWhite" id="AvailBurgs">
-				<p>Available Burgers</p>
+				<h3>Burgers to Eat</h3>
+				<p>Click a Burger to Eat It</p>
 				{{#each burgers}} {{#unless this.devoured}}
-					<form action="/burgers/{{this.id}}?_method=PUT" method="POST">
+				<form action="/burgers/{{this.id}}?_method=PUT&devoured={{this.devoured}}" method="POST">
 					<button type="submit" class="burgerBtn">{{this.burger_name}}</button>
-					</form>
+				</form>
+				{{!-- TODO: Figure out delete button --}}
+				{{!-- <form action="/burgers/{{this.id}}?_method=DELETE" method="DELETE">
+				<button class="deleteBurger btn btn-xs btn-danger" style="display: inline;">x</button>
+				</form> --}}
 				{{/unless}} {{/each}}
 			</div>
 			<div class="col-lg-2"></div>
 			<div class="col-lg-5 colWhite" id="eatenBurgs">
-				<p>Burgers You Ate</p>
+				<h3>Burgers You Ate</h3>
+				<p>Click a Burger to Un-eat It</p>
+				{{#each burgers}} {{#if this.devoured}}
+				<form action="/burgers/{{this.id}}?_method=PUT&devoured={{this.devoured}}" method="POST">
+					<button type="submit" class="burgerBtn">{{this.burger_name}}</button>
+				</form>
+				{{/if}} {{/each}}
 			</div>
 		</div>
 	</div>
